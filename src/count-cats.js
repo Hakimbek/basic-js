@@ -1,4 +1,5 @@
 const { NotImplementedError } = require('../extensions/index.js');
+const {c} = require("sinon/lib/sinon/spy-formatters");
 
 /**
  * Given matrix where you have to find cats by ears "^^"
@@ -14,9 +15,16 @@ const { NotImplementedError } = require('../extensions/index.js');
  * ]) => 3`
  *
  */
-function countCats(/* matrix */) {
-  throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+function countCats(matrix) {
+  let count = 0;
+  for (let i of matrix) {
+    for (let j of i) {
+      if (j === '^^') {
+        count++;
+      }
+    }
+  }
+  return count;
 }
 
 module.exports = {
